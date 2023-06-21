@@ -15,8 +15,6 @@ export default function Login() {
   const formSchema = loginSchema;
 
   let navigate = useNavigate();
-  const { user_id } = useParams();
-
 
   const [formValues, formErrors, disabled, handleChange] = useForm({
     initialFormValues,
@@ -27,12 +25,11 @@ export default function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     axiosWithAuth()
-    .post('http://localhost:5555/api/auth/login', formValues)
-    .then((res) => {
-      localStorage.setItem('token', res.data.token)
-      navigate(`/user/${res.data.userId}`)
-    })
-
+      .post('http://localhost:5555/api/auth/login', formValues)
+      .then((res) => {
+        localStorage.setItem('token', res.data.token);
+        navigate(`/user/${res.data.userId}`);
+      });
   }
 
   return (
