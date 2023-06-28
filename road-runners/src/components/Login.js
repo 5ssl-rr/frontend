@@ -5,11 +5,9 @@ import axiosWithAuth from '../utilities/axiosWithAuth';
 
 export default function Login() {
   const initialFormValues = {
-    email: '',
     password: '',
   };
   const initialFormErrors = {
-    email: '',
     password: '',
   };
   const formSchema = loginSchema;
@@ -25,10 +23,9 @@ export default function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     axiosWithAuth()
-      .post('http://localhost:5555/api/auth/login', formValues)
+      .post('http://localhost:1447/api/auth/login', formValues)
       .then((res) => {
         localStorage.setItem('token', res.data.token);
-        navigate(`/user/${res.data.userId}`);
       });
   }
 
@@ -37,7 +34,7 @@ export default function Login() {
       <h1>Every moment I live is agony</h1>
       <p>Logonin</p>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='email' />
+        {/* <label htmlFor='email' />
         <input
           id='email'
           type='email'
@@ -46,7 +43,7 @@ export default function Login() {
           name='email'
           onChange={handleChange}
         />
-        <p>{formErrors.email}</p>
+        <p>{formErrors.email}</p> */}
         <label htmlFor='password' />
         <input
           id='password'

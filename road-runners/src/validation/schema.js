@@ -6,5 +6,8 @@ const addressSchema = yup.object().shape({
   delivery: yup.string().trim().required('delivery status is required')
 })
 
+const loginSchema = yup.object().shape({
+  password: yup.string().trim().required()
+})
 
-export { addressSchema };
+export { addressSchema, loginSchema };
