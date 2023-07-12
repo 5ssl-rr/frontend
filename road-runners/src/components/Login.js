@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { loginSchema } from '../validation/schema';
 import { useForm } from '../hooks/useForm';
 import axiosWithAuth from '../utilities/axiosWithAuth';

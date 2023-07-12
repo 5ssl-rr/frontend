@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useForm } from '../hooks/useForm';
 import { addressSchema } from '../validation/schema';
 
@@ -23,7 +24,16 @@ export default function AddressForm() {
       formSchema,
     });
 
-  function handleSubmit() {}
+  function handleSubmit(e) {
+    e.preventDefault()
+    axios.post('http://localhost:1447/api/address/new', formValues)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) =>{
+      console.log(err)
+    })
+  }
 
   return (
     <div className='new-address'>
@@ -36,7 +46,7 @@ export default function AddressForm() {
           name='house'
           onChange={handleChange}
         />
-        <label htmlFor='street' />
+        <label htmlFor='house'>house</label>
         <input
           id='street'
           value={formValues.street}
@@ -50,6 +60,7 @@ export default function AddressForm() {
           name='delivery'
           onChange={handleChange}
         />
+        <button>submit</button>
       </form>
     </div>
   );
