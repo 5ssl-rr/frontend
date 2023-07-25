@@ -46,14 +46,14 @@ export default function AddressForm() {
           name='house'
           onChange={handleChange}
         />
-        <label htmlFor='house'>house</label>
+        <label htmlFor='street'>street</label>
         <input
           id='street'
           value={formValues.street}
           name='street'
           onChange={handleChange}
         />
-        <label htmlFor='delivery' />
+        <label htmlFor='delivery' >Delivery</label>
         <input
           id='delivery'
           value={formValues.delivery}

@@ -10,4 +10,8 @@ const loginSchema = yup.object().shape({
   password: yup.string().trim().required()
 })
 
+const deliverySchema = yup.object().shape({
+  
+})
+
 export { addressSchema, loginSchema };
