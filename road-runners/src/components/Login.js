@@ -1,4 +1,4 @@
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { loginSchema } from '../validation/schema';
 import { useForm } from '../hooks/useForm';
 import axiosWithAuth from '../utilities/axiosWithAuth';
@@ -26,7 +26,7 @@ export default function Login() {
       .post('http://localhost:1447/api/auth/login', formValues)
       .then((res) => {
         localStorage.setItem('token', res.data.token);
-        navigate('rr')
+        navigate('/');
       });
   }
 

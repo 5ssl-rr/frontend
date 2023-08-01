@@ -6,13 +6,11 @@ export default function AddressForm() {
   let initialFormValues = {
     house: 0,
     street: '',
-    delivery: '',
   };
 
   let initialFormErrors = {
     house: 0,
     street: '',
-    delivery: '',
   };
 
   const formSchema = addressSchema;
@@ -53,7 +51,7 @@ export default function AddressForm() {
           name='street'
           onChange={handleChange}
         />
-        <label htmlFor='delivery' >Delivery</label>
+        <label htmlFor='delivery'>Delivery</label>
         <input
           id='delivery'
           value={formValues.delivery}
