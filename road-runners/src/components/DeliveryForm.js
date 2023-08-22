@@ -21,4 +21,16 @@ function handleSubmit(e){
     
 }
 
+return(
+  <div className='update-delivery-status'>
+    <form onSubmit={handleSubmit}>
+     <label htmlFor='houses'>Houses: </label>
+     <input
+     id='houses'
+     type='text'
+     />
+    </form>
+  </div>
+)
+
 }
