@@ -3,6 +3,7 @@ import Login from './Login';
 import AddressForm from './AddressForm';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Address from './Address';
 
 export default function Home() {
   const token = localStorage.getItem('token');
@@ -33,8 +34,16 @@ export default function Home() {
       <nav>
         <Link to='/logout'>Logout</Link>
       </nav>
-<p></p>
-      <AddressForm />
+      <AddressForm/>
+      <div className='addresses-container'>
+      {addresses.map((address) => {
+        return(
+          <Address
+          address={address}
+          />
+        )
+      })}
+      </div>
     </>
   );
 }
