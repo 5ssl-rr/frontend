@@ -105,6 +105,7 @@ section {
   margin: 0%;
   padding: 0%;
   max-width: 100%;
+  
 }
 html {
   font-size: 62.5%;
@@ -120,6 +121,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* border: 1px solid grey; */
 }
 ol,
 ul {
@@ -139,6 +141,7 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  margin-left: 50%;
 }
 
 code {
@@ -159,3 +162,14 @@ input {
   margin-top: 1%;
   width: 15%;
 }
+th{
+  font-size: 2rem;
+  text-align: left;
+}
+
+td {
+  border: 1px solid black;
+  padding: 1rem;
+  text-align: left;
+}
+

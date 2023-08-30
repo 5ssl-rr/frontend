@@ -4,11 +4,13 @@ import AddressForm from './AddressForm';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Address from './Address';
+import Street from './Street';
 
 export default function Home() {
   const token = localStorage.getItem('token');
   const [addresses, setAddresses] = useState([])
   const [streets, setStreets] = useState([])
+  const [activeStreet, setActiveStreet] = useState();
   
   useEffect(()=>{
       axiosWithAuth()
@@ -36,13 +38,35 @@ export default function Home() {
       </nav>
       <AddressForm/>
       <div className='addresses-container'>
-      {addresses.map((address) => {
+      <table border="1">
+        <body>
+        <tr>
+            <th>House#</th>
+            <th>Delivery</th>
+          </tr>
+          {addresses.map((address) => (
+            <tr>
+              <td>{address.house}</td>
+              <td>{address.delivery}</td>
+            </tr>
+           ))}
+           
+        </body>
+      </table>
+      {/* {streets.map((street) => {
+        return(
+          <Street
+          street={street} streets={streets}/>
+        )
+      })} */}
+      {/* {addresses.map((address) => {
         return(
           <Address
           address={address}
           />
         )
-      })}
+      })} */}
+      
       </div>
     </>
   );
