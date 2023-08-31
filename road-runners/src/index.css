@@ -121,7 +121,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* border: 1px solid grey; */
+  border: 1px solid grey;
 }
 ol,
 ul {
@@ -141,7 +141,6 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  margin-left: 50%;
 }
 
 code {
@@ -173,3 +172,21 @@ td {
   text-align: left;
 }
 
+button{
+  margin: .5rem
+}
+.addresses-container{
+  display: flex;
+  flex-direction: column; 
+  border: 10px solid grey;
+}
+.street-container{
+  padding: 1rem;
+  border: 1px solid grey;
+  display: flex;
+  justify-content: center;
+}
+.address-table{
+  display: flex;
+  justify-content: center;
+}
