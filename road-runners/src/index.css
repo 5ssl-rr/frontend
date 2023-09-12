@@ -163,13 +163,15 @@ input {
 }
 th{
   font-size: 2rem;
-  text-align: left;
+  text-align: center;
+  border: .2cdrem solid black;
 }
 
 td {
   border: 1px solid black;
   padding: 1rem;
   text-align: left;
+  min-width: 10rem;
 }
 
 button{

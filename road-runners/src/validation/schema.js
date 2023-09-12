@@ -11,7 +11,7 @@ const loginSchema = yup.object().shape({
 })
 
 const deliverySchema = yup.object().shape({
-  
+  delivery: yup.string().trim().required()
 })
 
-export { addressSchema, loginSchema };
+export { addressSchema, loginSchema, deliverySchema };

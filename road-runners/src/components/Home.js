@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Address from './Address';
 import Street from './Street';
+import Delivery from './Delivery';
 
 export default function Home() {
   const token = localStorage.getItem('token');
@@ -22,6 +23,7 @@ export default function Home() {
       </nav>
       <AddressForm />
      <Street/>
+     <Delivery/>
     </>
   );
 }

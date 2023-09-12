@@ -21,17 +21,30 @@ export default function Street() {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(activeStreet);
-    console.log(addresses);
-  }, [activeStreet, addresses]);
+  
+  // const handleActiveStreet = (street) => {
+  //   setActiveStreet(street)
+  //   const filteredArray2 = filteredAddresses.filter(
+  //     (address) => address.delivery === 'yes'
+  //     );
+  //     setFilteredAddresses(filteredArray2);
+  //   }
 
-  useEffect(() => {
-    const filteredArray = addresses.filter(
-      (address) => address.street === activeStreet
-    );
-    setFilteredAddresses(filteredArray);
-  }, [addresses, activeStreet]);
+    useEffect(() => {
+    let filteredArray = addresses.filter(
+        (address) => address.street === activeStreet
+      );
+      filteredArray = filteredArray.filter(
+        (address) => address.delivery ==='yes'
+      )
+      setFilteredAddresses(filteredArray);
+    }, [addresses, activeStreet]);
+  // useEffect(() => {
+  //   const filteredArray2 = filteredAddresses.filter(
+  //     (address) => address.delivery === 'yes'
+  //   );
+  //   setFilteredAddresses(filteredArray2);
+  // }, [filteredAddresses]);
 
   if (!streets) {
     return <h3>failed to retrieve street information</h3>;
