@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { deliverySchema } from '../validation/schema';
 
 export default function Delivery(props) {
+  let {deliveryFilter} = props  
   let initialFormValues = {
     delivery: ''
   };
@@ -17,7 +18,8 @@ export default function Delivery(props) {
     formSchema,
   });
   
-  
+
+
 
   return (
     <div className='delivery-status'>

@@ -9,7 +9,6 @@ import Delivery from './Delivery';
 
 export default function Home() {
   const token = localStorage.getItem('token');
-  
 
   // useEffect(() => {
   //   console.log(addresses);
@@ -22,8 +21,7 @@ export default function Home() {
         <Link to='/logout'>Logout</Link>
       </nav>
       <AddressForm />
-     <Street/>
-     <Delivery/>
+      <Street  />
     </>
   );
 }
