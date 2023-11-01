@@ -6,6 +6,9 @@ export default function Street(props) {
   const [activeStreet, setActiveStreet] = useState();
   const [filteredAddresses, setFilteredAddresses] = useState([]);
   const [delivery, setDelivery] = useState('all');
+  const [hideNo, setHideNo] = useState(false);
+  const [showNoButton, setShowNoButton] = useState(false);
+
 
   useEffect(() => {
     axiosWithAuth()
@@ -30,8 +33,12 @@ export default function Street(props) {
       filteredArray = filteredArray.filter(
         (address) => address.delivery === delivery
       );
+    if (hideNo === true)
+        filteredArray = filteredArray.filter(
+          (address) => address.delivery !== 'no'                                                
+        )
     setFilteredAddresses(filteredArray);
-  }, [addresses, activeStreet, delivery]);
+  }, [addresses, activeStreet, delivery, hideNo]);
 
   if (!streets) {
     return <h3>failed to retrieve street information</h3>;
@@ -69,6 +76,14 @@ export default function Street(props) {
         <div>
           <button onClick={() => setDelivery('all')}>All</button>
           <button onClick={() => setDelivery('yes')}>Yes</button>
+          <button onClick={() => setDelivery('email')}>Email</button>
+          
+          {
+            showNoButton === false ?
+          <button onClick={() => {setHideNo(true); setShowNoButton(true)}}>Hide No</button> 
+          :
+          <button onClick={() => {setHideNo(false); setShowNoButton(false)}}>Display No</button>
+          }     
         </div>
       </div>
     </>

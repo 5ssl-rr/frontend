@@ -26,7 +26,7 @@ export default function AddressForm() {
     });
 
   function handleSubmit(e) {
-    e.preventDefault()
+    // e.preventDefault()
     axios.post('http://localhost:1447/api/address/new', formValues)
     .then((res) => {
       console.log(res)
