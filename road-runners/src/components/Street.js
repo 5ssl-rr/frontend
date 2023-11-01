@@ -7,7 +7,7 @@ export default function Street(props) {
   const [filteredAddresses, setFilteredAddresses] = useState([]);
   const [delivery, setDelivery] = useState('all');
   const [hideNo, setHideNo] = useState(false);
-  const [showNoButton, setShowNoButton] = useState(false);
+  
 
 
   useEffect(() => {
@@ -24,6 +24,11 @@ export default function Street(props) {
         console.log(err);
       });
   }, []);
+
+  useEffect(()=>{
+    setActiveStreet(streets[0])
+    console.log(streets)
+  }, [streets])
 
   useEffect(() => {
     let filteredArray = addresses.filter(
@@ -80,9 +85,9 @@ export default function Street(props) {
           
           {
             hideNo === false ?
-          <button onClick={() => {setHideNo(true); setShowNoButton(true)}}>Hide No</button> 
+          <button onClick={() => setHideNo(true)}>Hide No</button> 
           :
-          <button onClick={() => {setHideNo(false); setShowNoButton(false)}}>Display No</button>
+          <button onClick={() => setHideNo(false)}>Display No</button>
           }     
         </div>
       </div>
