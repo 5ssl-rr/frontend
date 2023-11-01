@@ -79,7 +79,7 @@ export default function Street(props) {
           <button onClick={() => setDelivery('email')}>Email</button>
           
           {
-            showNoButton === false ?
+            hideNo === false ?
           <button onClick={() => {setHideNo(true); setShowNoButton(true)}}>Hide No</button> 
           :
           <button onClick={() => {setHideNo(false); setShowNoButton(false)}}>Display No</button>
