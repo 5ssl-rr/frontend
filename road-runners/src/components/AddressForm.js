@@ -3,7 +3,7 @@ import { useForm } from '../hooks/useForm';
 import { addressSchema } from '../validation/schema';
 import { useEffect } from 'react';
 
-export default function AddressForm() {
+export default function AddressForm(props) {
   let initialFormValues = {
     house: 0,
     street: '',

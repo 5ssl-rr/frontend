@@ -105,7 +105,7 @@ section {
   margin: 0%;
   padding: 0%;
   max-width: 100%;
-  
+  border: 1px solid grey;
 }
 html {
   font-size: 62.5%;
@@ -121,7 +121,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  border: 1px solid grey;
+
 }
 ol,
 ul {
@@ -164,7 +164,7 @@ input {
 th{
   font-size: 2rem;
   text-align: center;
-  border: .2cdrem solid black;
+  border: .2rem solid black;
 }
 
 td {
@@ -180,15 +180,17 @@ button{
 .addresses-container{
   display: flex;
   flex-direction: column; 
-  border: 10px solid grey;
 }
 .street-container{
   padding: 1rem;
-  border: 1px solid grey;
   display: flex;
   justify-content: center;
 }
 .address-table{
+  display: flex;
+  justify-content: center;
+}
+nav{
   display: flex;
   justify-content: center;
 }

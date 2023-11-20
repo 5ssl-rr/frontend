@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Address from './Address';
 import Street from './Street';
 import Delivery from './Delivery';
+import NavMenu from './NavMenu';
 
 export default function Home() {
   const token = localStorage.getItem('token');
@@ -17,9 +18,6 @@ export default function Home() {
 
   return (
     <>
-      <nav>
-        <Link to='/logout'>Logout</Link>
-      </nav>
       <AddressForm />
       <Street  />
     </>

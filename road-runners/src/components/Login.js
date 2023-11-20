@@ -3,7 +3,7 @@ import { loginSchema } from '../validation/schema';
 import { useForm } from '../hooks/useForm';
 import axiosWithAuth from '../utilities/axiosWithAuth';
 
-export default function Login() {
+export default function Login(props) {
   const initialFormValues = {
     password: '',
   };
@@ -26,6 +26,7 @@ export default function Login() {
       .post('http://localhost:1447/api/auth/login', formValues)
       .then((res) => {
         localStorage.setItem('token', res.data.token);
+        props.setShowNav(true)
         navigate('/rr');
       });
   }

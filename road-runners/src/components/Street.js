@@ -7,8 +7,8 @@ export default function Street(props) {
   const [filteredAddresses, setFilteredAddresses] = useState([]);
   const [delivery, setDelivery] = useState('all');
   const [hideNo, setHideNo] = useState(false);
+  const [edit, setEdit] = useState(false);
   
-
 
   useEffect(() => {
     axiosWithAuth()
@@ -19,6 +19,7 @@ export default function Street(props) {
           ...new Set(res.data.map((addresses) => addresses.street)),
         ];
         setStreets(streetList);
+        console.log(res.data)
       })
       .catch((err) => {
         console.log(err);
@@ -72,17 +73,17 @@ export default function Street(props) {
               {filteredAddresses.map((address) => (
                 <tr key={address.id}>
                   <td>{address.house}</td>
-                  <td>{address.delivery}</td>
+                  <td>{address.delivery}{edit === false ? <button onClick={() => setEdit(true)}>Edit</button> : <button onClick={() => setEdit(false)}>Submit</button>} </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <div>
+          {/* Add function to generate buttons dynamically in order to accomodate custom values */}
           <button onClick={() => setDelivery('all')}>All</button>
           <button onClick={() => setDelivery('yes')}>Yes</button>
           <button onClick={() => setDelivery('email')}>Email</button>
-          
           {
             hideNo === false ?
           <button onClick={() => setHideNo(true)}>Hide No</button> 
