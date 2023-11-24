@@ -7,7 +7,7 @@ export default function Street(props) {
   const [filteredAddresses, setFilteredAddresses] = useState([]);
   const [delivery, setDelivery] = useState('all');
   const [hideNo, setHideNo] = useState(false);
-  const [edit, setEdit] = useState(false);
+  const [edit, setEdit] = useState({});
   
 
   useEffect(() => {
@@ -30,7 +30,9 @@ export default function Street(props) {
     setActiveStreet(streets[0])
     console.log(streets)
   }, [streets])
-
+  useEffect(()=>{
+    console.log(edit)
+  }, [edit])
   useEffect(() => {
     let filteredArray = addresses.filter(
       (address) => address.street === activeStreet
@@ -49,6 +51,13 @@ export default function Street(props) {
   if (!streets) {
     return <h3>failed to retrieve street information</h3>;
   }
+
+  
+  const toggleEdit = (addressId) => {
+    setEdit({[addressId]: !edit[addressId]})
+  }
+
+
   return (
     <>
       <p>{delivery}</p>
@@ -73,7 +82,7 @@ export default function Street(props) {
               {filteredAddresses.map((address) => (
                 <tr key={address.id}>
                   <td>{address.house}</td>
-                  <td>{address.delivery}{edit === false ? <button onClick={() => setEdit(true)}>Edit</button> : <button onClick={() => setEdit(false)}>Submit</button>} </td>
+                  <td>{address.delivery}{!edit[address.id] ? <button onClick={() => toggleEdit(address.id)}>Edit</button> : <button onClick={() => toggleEdit(address.id)}>Submit</button>} </td>
                 </tr>
               ))}
             </tbody>
