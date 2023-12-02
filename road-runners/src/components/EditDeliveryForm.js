@@ -5,7 +5,7 @@ export default function EditDeliveryForm(props) {
   function handleSubmit(e) {
     const deliveryUpdate = document.getElementById('delivery-update').value;
     axiosWithAuth()
-      .put(`http://localhost:1447/api/address/${addressId}`, {
+      .patch(`http://localhost:1447/api/address/${addressId}`, {
         delivery: deliveryUpdate,
       })
       .catch((err) => {

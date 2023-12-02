@@ -67,7 +67,7 @@ export default function Street(props) {
       <div className='addresses-container'>
         <div className='street-container'>
           <p>{activeStreet}</p>
-          {streets.map((street) => {
+          {streets.sort((a,b)=> a.id-b.id).map((street) => {
             return (
               <button key={street} onClick={() => setActiveStreet(street)}>
                 {street}
@@ -82,7 +82,7 @@ export default function Street(props) {
                 <th>House#</th>
                 <th>Delivery</th>
               </tr>
-              {filteredAddresses.map((address) => (
+              {filteredAddresses.sort((a,b)=> a.id-b.id).map((address) => (
                 <tr key={address.id}>
                   <td>{address.house}</td>
                   <td>{address.delivery}{!edit[address.id] ? <button onClick={() => toggleEdit(address.id)}>Edit</button> : <EditDeliveryForm addressId = {address.id}/>} </td>
