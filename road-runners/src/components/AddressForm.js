@@ -7,13 +7,13 @@ export default function AddressForm(props) {
   let initialFormValues = {
     house: 0,
     street: '',
-    delivery:''
+    delivery: '',
   };
 
   let initialFormErrors = {
     house: 0,
     street: '',
-    delivery: ''
+    delivery: '',
   };
 
   const formSchema = addressSchema;
@@ -27,16 +27,15 @@ export default function AddressForm(props) {
 
   function handleSubmit(e) {
     // e.preventDefault()
-    axios.post('http://localhost:1447/api/address/new', formValues)
-    .then((res) => {
-      console.log(res)
-    })
-    .catch((err) =>{
-      console.log(err)
-    })
+    axios
+      .post('http://localhost:1447/api/address/new', formValues)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-
-
 
   return (
     <div className='new-address'>
@@ -57,34 +56,34 @@ export default function AddressForm(props) {
           onChange={handleChange}
         />
         <div>
-        <label htmlFor='delivery'>Delivery: </label>
-        <input
-          type='checkbox'
-          id='yes'
-          value='yes'
-          name='delivery'
-          onChange={handleChange}
-          checked={formValues.delivery === 'yes'}
-        />
-        <label htmlFor='yes'>Yes</label>
-        <input
-          type='checkbox'
-          id='email'
-          value='email'
-          name='delivery'
-          onChange={handleChange}
-          checked={formValues.delivery === 'email'}
-        />
-        <label htmlFor='email'>Email</label>
-        <input
-          type='checkbox'
-          id='no'
-          value='no'
-          name='delivery'
-          onChange={handleChange}
-          checked={formValues.delivery === 'no'}
-        />
-        <label htmlFor='no'>No</label>
+          <label htmlFor='delivery'>Delivery: </label>
+          <input
+            type='checkbox'
+            id='yes'
+            value='yes'
+            name='delivery'
+            onChange={handleChange}
+            checked={formValues.delivery === 'yes'}
+          />
+          <label htmlFor='yes'>Yes</label>
+          <input
+            type='checkbox'
+            id='email'
+            value='email'
+            name='delivery'
+            onChange={handleChange}
+            checked={formValues.delivery === 'email'}
+          />
+          <label htmlFor='email'>Email</label>
+          <input
+            type='checkbox'
+            id='no'
+            value='no'
+            name='delivery'
+            onChange={handleChange}
+            checked={formValues.delivery === 'no'}
+          />
+          <label htmlFor='no'>No</label>
         </div>
         <button disabled={disabled}>submit</button>
       </form>
