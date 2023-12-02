@@ -14,4 +14,8 @@ const deliverySchema = yup.object().shape({
   delivery: yup.string().trim().required()
 })
 
-export { addressSchema, loginSchema, deliverySchema };
+const editDeliveryFormSchema = yup.object().shape({
+  delivery: yup.string().trim()
+})
+
+export { addressSchema, loginSchema, deliverySchema, editDeliveryFormSchema };

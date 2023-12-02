@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axiosWithAuth from '../utilities/axiosWithAuth';
+import EditDeliveryForm from './EditDeliveryForm';
+
 export default function Street(props) {
   const [addresses, setAddresses] = useState([]);
   const [streets, setStreets] = useState([]);
@@ -55,6 +57,7 @@ export default function Street(props) {
   
   const toggleEdit = (addressId) => {
     setEdit({[addressId]: !edit[addressId]})
+    
   }
 
 
@@ -82,7 +85,7 @@ export default function Street(props) {
               {filteredAddresses.map((address) => (
                 <tr key={address.id}>
                   <td>{address.house}</td>
-                  <td>{address.delivery}{!edit[address.id] ? <button onClick={() => toggleEdit(address.id)}>Edit</button> : <button onClick={() => toggleEdit(address.id)}>Submit</button>} </td>
+                  <td>{address.delivery}{!edit[address.id] ? <button onClick={() => toggleEdit(address.id)}>Edit</button> : <EditDeliveryForm addressId = {address.id}/>} </td>
                 </tr>
               ))}
             </tbody>
