@@ -121,7 +121,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 ol,
 ul {
@@ -156,15 +155,19 @@ code {
   flex-direction: column;
   align-items: center;
 }
+label {
+  margin: 1%;
+  width: max-content;
+}
 
 input {
-  margin-top: 1%;
-  width: 15%;
+  margin: 1%;
+  width: 100%;
 }
-th{
+th {
   font-size: 2rem;
   text-align: center;
-  border: .2rem solid black;
+  border: 0.2rem solid black;
 }
 
 td {
@@ -174,23 +177,45 @@ td {
   min-width: 10rem;
 }
 
-button{
-  margin: .5rem
+button {
+  margin: 0.5rem;
 }
-.addresses-container{
+.addresses-container {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
-.street-container{
+.street-container {
   padding: 1rem;
   display: flex;
   justify-content: center;
 }
-.address-table{
+.address-table {
   display: flex;
   justify-content: center;
 }
-nav{
+nav {
   display: flex;
   justify-content: center;
+}
+.new-address-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  gap: 1rem;
+  margin: auto;
+}
+.new-address form input[type='checkbox'] {
+  width: fit-content;
+  padding: 5%;
+}
+.new-address button {
+  width: max-content;
+  align-self: center;
+}
+.checkbox-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 1px;
+  width: fit-content;
 }

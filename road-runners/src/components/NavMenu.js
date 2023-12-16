@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Link} from 'react'
+import {Link} from 'react-router-dom'
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);
@@ -14,7 +14,8 @@ export default function NavMenu() {
       {open && (
         <ul className='dropdown-content'>
           <li>
-            <a href='address-form'>Home</a>
+            {/* <a href='address-form'>Home</a> */}
+            <Link to='address-form'>Address Form</Link>
           </li>
         </ul>
       )}

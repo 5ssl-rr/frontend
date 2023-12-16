@@ -26,13 +26,23 @@ function App() {
         </nav>
       )}
       <Routes>
-        <Route path='rr' element={
-          <PrivateRoute>
-            <Home setShowNav={setShowNav}/>
-          </PrivateRoute>
-        } />
+        <Route
+          path='rr'
+          element={
+            <PrivateRoute>
+              <Home setShowNav={setShowNav} />
+            </PrivateRoute>
+          }
+        />
         <Route path='/' element={<Login setShowNav={setShowNav} />} />
-        <Route path='address-form' element={<AddressForm />} />
+        <Route
+          path='address-form'
+          element={
+            <PrivateRoute>
+              <AddressForm />
+            </PrivateRoute>
+          }
+        />
         <Route path='logout' element={<Logout setShowNav={setShowNav} />} />
       </Routes>
     </div>
