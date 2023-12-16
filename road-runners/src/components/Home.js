@@ -8,9 +8,9 @@ import Street from './Street';
 import Delivery from './Delivery';
 import NavMenu from './NavMenu';
 
-export default function Home() {
+export default function Home(props) {
   const token = localStorage.getItem('token');
-
+const {setShowNav} = props
   // useEffect(() => {
   //   console.log(addresses);
   //   console.log(streets);
@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <AddressForm />
-      <Street  />
+      <Street setShowNav={setShowNav} />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axiosWithAuth from '../utilities/axiosWithAuth';
 import EditDeliveryForm from './EditDeliveryForm';
+import { useNavigate } from 'react-router-dom';
 
 export default function Street(props) {
   const [addresses, setAddresses] = useState([]);
@@ -11,6 +12,8 @@ export default function Street(props) {
   const [hideNo, setHideNo] = useState(false);
   const [edit, setEdit] = useState({});
   
+  const navigate = useNavigate()
+const {setShowNav} = props
 
   useEffect(() => {
     axiosWithAuth()
@@ -25,8 +28,13 @@ export default function Street(props) {
       })
       .catch((err) => {
         console.log(err);
+        if(err.response.status === 401){
+          localStorage.removeItem('token')
+          setShowNav(false)
+          navigate('/')
+        }
       });
-  }, []);
+  }, [navigate, setShowNav]);
 
   useEffect(()=>{
     setActiveStreet(streets[0])
@@ -67,7 +75,7 @@ export default function Street(props) {
       <div className='addresses-container'>
         <div className='street-container'>
           <p>{activeStreet}</p>
-          {streets.sort((a,b)=> a.id-b.id).map((street) => {
+          {streets.sort((a,b) => a.id-b.id).map((street) => {
             return (
               <button key={street} onClick={() => setActiveStreet(street)}>
                 {street}
