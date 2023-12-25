@@ -164,11 +164,11 @@ input {
   margin: 1%;
   width: 100%;
 }
-th {
+/* th {
   font-size: 2rem;
   text-align: center;
   border: 0.2rem solid black;
-}
+} */
 
 td {
   border: 1px solid black;
@@ -208,13 +208,15 @@ nav {
   width: fit-content;
   padding: 5%;
 }
-.new-address button {
+ /* .new-address button {
   width: max-content;
   align-self: center;
   padding: .5rem;
-  color: white;
+  color: white; 
   background-color: #DB3927;
-}
+}  */
+
+
 .checkbox-container {
   display: grid;
   grid-template-columns: auto auto;

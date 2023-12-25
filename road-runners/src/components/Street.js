@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axiosWithAuth from '../utilities/axiosWithAuth';
 import EditDeliveryForm from './EditDeliveryForm';
 import { useNavigate } from 'react-router-dom';
+import { StyledTableHeader } from '../styles/StreetStyle';
 
 export default function Street(props) {
   const [addresses, setAddresses] = useState([]);
@@ -87,10 +88,10 @@ const {setShowNav} = props
           <table border='1'>
             <tbody>
               <tr>
-                <th>House#</th>
-                <th>Delivery</th>
+                <StyledTableHeader>House#</StyledTableHeader>
+                <StyledTableHeader>Delivery</StyledTableHeader>
               </tr>
-              {filteredAddresses.sort((a,b)=> a.id-b.id).map((address) => (
+              {filteredAddresses.sort((a,b)=> a.house-b.house).map((address) => (
                 <tr key={address.id}>
                   <td>{address.house}</td>
                   <td>{address.delivery}{!edit[address.id] ? <button onClick={() => toggleEdit(address.id)}>Edit</button> : <EditDeliveryForm addressId = {address.id}/>} </td>

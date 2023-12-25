@@ -1,9 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { loginSchema } from '../validation/schema';
 import { useForm } from '../hooks/useForm';
+import { useEffect } from 'react';
 import axiosWithAuth from '../utilities/axiosWithAuth';
+import { StyledInput } from '../styles/LoginStyle';
 
 export default function Login(props) {
+ localStorage.removeItem('token');
+  
+ 
   const initialFormValues = {
     password: '',
   };
@@ -47,7 +52,7 @@ export default function Login(props) {
         />
         <p>{formErrors.email}</p> */}
         <label htmlFor='password' />
-        <input
+        <StyledInput
           id='password'
           type='password'
           placeholder='Password'

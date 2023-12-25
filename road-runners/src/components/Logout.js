@@ -8,5 +8,5 @@ export default function Logout(props){
         localStorage.removeItem('token');
         props.setShowNav(false)
         navigate("/");
-      }, [navigate]);
+      }, [navigate, props]);
 }

@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useForm } from '../hooks/useForm';
 import { addressSchema } from '../validation/schema';
 import { useEffect } from 'react';
+import { StyledSubmitButton } from '../styles/AddressFormStyle';
 
 export default function AddressForm(props) {
   let initialFormValues = {
@@ -89,7 +90,7 @@ export default function AddressForm(props) {
             <label htmlFor='no'>No</label>
           </div>
         </div>
-        <button disabled={disabled}>submit</button>
+        <StyledSubmitButton disabled={disabled}>Submit</StyledSubmitButton>
       </form>
     </div>
   );
