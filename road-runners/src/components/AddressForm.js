@@ -1,4 +1,5 @@
-import axios from 'axios';
+
+import axiosWithAuth from '../utilities/axiosWithAuth';
 import { useForm } from '../hooks/useForm';
 import { addressSchema } from '../validation/schema';
 import { useEffect } from 'react';
@@ -28,7 +29,7 @@ export default function AddressForm(props) {
 
   function handleSubmit(e) {
     // e.preventDefault()
-    axios
+    axiosWithAuth()
       .post('http://localhost:1447/api/address/new', formValues)
       .then((res) => {
         console.log(res);
