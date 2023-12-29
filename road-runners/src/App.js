@@ -21,8 +21,8 @@ function App() {
     <div className='App'>
       {showNav && (
         <nav>
-          <NavMenu />
-          <Link to='/logout'>Logout</Link>
+          {/* <NavMenu /> */}
+           <Link to='/logout'>Logout</Link>
         </nav>
       )}
       <Routes>

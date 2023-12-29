@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-export default function NavMenu() {
+export default function NavMenu(props) {
   const [open, setOpen] = useState(false);
-
+const {showEditButton, setShowEditButton} = props;
   const toggleDropdown = () => setOpen(!open);
   console.log(open);
   return (
@@ -14,9 +14,11 @@ export default function NavMenu() {
       {open && (
         <ul className='dropdown-content'>
           <li>
-            {/* <a href='address-form'>Home</a> */}
             <Link to='address-form'>Address Form</Link>
           </li>
+          <li>
+            <button onClick={() => setShowEditButton(!showEditButton)}>Edit Delivery Status</button>
+            </li>
         </ul>
       )}
     </div>

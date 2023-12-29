@@ -1,8 +1,9 @@
 import axiosWithAuth from '../utilities/axiosWithAuth';
 export default function EditDeliveryForm(props) {
-  let { addressId } = props;
+  let { addressId, toggleEdit, setUpdate } = props;
 
   function handleSubmit(e) {
+    e.preventDefault()
     const deliveryUpdate = document.getElementById('delivery-update').value;
     axiosWithAuth()
       .patch(`http://localhost:1447/api/address/${addressId}`, {
@@ -11,6 +12,8 @@ export default function EditDeliveryForm(props) {
       .catch((err) => {
         console.log(err);
       });
+      toggleEdit(addressId)
+      setUpdate(true)
   }
 
   return (

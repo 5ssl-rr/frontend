@@ -3,6 +3,7 @@ import axiosWithAuth from '../utilities/axiosWithAuth';
 import EditDeliveryForm from './EditDeliveryForm';
 import { useNavigate } from 'react-router-dom';
 import { StyledTableHeader } from '../styles/StreetStyle';
+import NavMenu from './NavMenu';
 
 export default function Street(props) {
   const [addresses, setAddresses] = useState([]);
@@ -12,6 +13,8 @@ export default function Street(props) {
   const [delivery, setDelivery] = useState('all');
   const [hideNo, setHideNo] = useState(false);
   const [edit, setEdit] = useState({});
+  const [showEditButton, setShowEditButton] = useState(false)
+  const [update, setUpdate] = useState(false)
   
   const navigate = useNavigate()
 const {setShowNav} = props
@@ -35,7 +38,8 @@ const {setShowNav} = props
           navigate('/')
         }
       });
-  }, [navigate, setShowNav]);
+      setUpdate(false)
+  }, [navigate, setShowNav, update]);
 
   useEffect(()=>{
     setActiveStreet(streets[0])
@@ -72,6 +76,7 @@ const {setShowNav} = props
 
   return (
     <>
+    <NavMenu showEditButton={showEditButton} setShowEditButton={setShowEditButton}/>
       <p>{delivery}</p>
       <div className='addresses-container'>
         <div className='street-container'>
@@ -94,7 +99,7 @@ const {setShowNav} = props
               {filteredAddresses.sort((a,b)=> a.house-b.house).map((address) => (
                 <tr key={address.id}>
                   <td>{address.house}</td>
-                  <td>{address.delivery}{!edit[address.id] ? <button onClick={() => toggleEdit(address.id)}>Edit</button> : <EditDeliveryForm addressId = {address.id}/>} </td>
+                  <td>{address.delivery}{showEditButton && (!edit[address.id] ? <button onClick={() => toggleEdit(address.id)}>Edit</button> : <EditDeliveryForm addressId = {address.id} toggleEdit={toggleEdit} update={update} setUpdate={setUpdate}/>)} </td>
                 </tr>
               ))}
             </tbody>
