@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 // import './App.css';
-import './index.css';
+// import './index.css';
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Login from './components/Login';

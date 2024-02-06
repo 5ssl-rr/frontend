@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { loginSchema } from '../validation/schema';
 import { useForm } from '../hooks/useForm';
-import { useEffect } from 'react';
+import { useState ,useEffect } from 'react';
 import axiosWithAuth from '../utilities/axiosWithAuth';
-import { StyledInput } from '../styles/LoginStyle';
+import  {StyledInput, StyledErrorMessage} from '../styles/LoginStyle';
 
 export default function Login(props) {
  localStorage.removeItem('token');
   
- 
+ const [error, setError] = useState('')
   const initialFormValues = {
     password: '',
   };
@@ -33,7 +33,11 @@ export default function Login(props) {
         localStorage.setItem('token', res.data.token);
         props.setShowNav(true)
         navigate('/rr');
-      });
+      })
+      .catch((err) => {
+       setError(err.response.data.message)
+       console.log(error)
+      })
   }
 
   return (
@@ -61,7 +65,8 @@ export default function Login(props) {
           onChange={handleChange}
         />
         <button disabled={disabled}>Submit</button>
+        <StyledErrorMessage>{error}</StyledErrorMessage>
       </form>
     </div>
   );
-}
+} 
