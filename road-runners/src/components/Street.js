@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import axiosWithAuth from '../utilities/axiosWithAuth';
 import EditDeliveryForm from './EditDeliveryForm';
 import { useNavigate } from 'react-router-dom';
-import { StyledTableHeader } from '../styles/StreetStyle';
+import { StyledTableHeader, StyledMenuDiv } from '../styles/StreetStyle';
 import NavMenu from './NavMenu';
+import {Link} from 'react-router-dom'
 
 export default function Street(props) {
   const [addresses, setAddresses] = useState([]);
@@ -76,8 +77,10 @@ const {setShowNav} = props
 
   return (
     <>
+    <StyledMenuDiv>
     <NavMenu showEditButton={showEditButton} setShowEditButton={setShowEditButton}/>
-      <p>{delivery}</p>
+    <Link to='/logout'>Logout</Link>
+    </StyledMenuDiv>
       <div className='addresses-container'>
         <div className='street-container'>
           <p>{activeStreet}</p>

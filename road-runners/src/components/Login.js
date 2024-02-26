@@ -31,7 +31,6 @@ export default function Login(props) {
       .post('http://localhost:1447/api/auth/login', formValues)
       .then((res) => {
         localStorage.setItem('token', res.data.token);
-        props.setShowNav(true)
         navigate('/rr');
       })
       .catch((err) => {
